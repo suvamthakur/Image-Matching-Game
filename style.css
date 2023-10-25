@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #181818;
+    color: #cfab7b;
+    font-family: 'Noto Sans', sans-serif;
+}
+/* main */
+.main {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+h1 {
+    font-size: 2rem;
+}
+span {
+    font-size: 1.2rem;
+}
+h1 span {
+    font-size: 2rem;
+    color: #1092b6;
+}
+p {
+    font-size: 1.2rem;
+    display: none;
+}
+.game-info {
+    display: flex;
+    gap: 130px;
+}
+/* Game container */
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.grid-1 {
+    grid-template-columns: repeat(6, 1fr);  /* Making 6 columns after a win using js */
+}
+.card {     /* created this (card-boxes)class in script.js */
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    perspective: 1000px;
+}
+.front-card, .back-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+.front-card {
+    background-color: #181818;
+    background-size: cover;  /* To sprcify the size of backgroud image inside the card */
+    box-shadow: 0 0 5px 1px #1092b6;
+    transform: rotateY(180deg);
+}
+.back-card {
+    background-color: #1092b6;
+}
+.match {
+    transform: rotateY(180deg);
+}
+.active {
+    transform: rotateY(180deg);
+}
+
+@media (max-width: 900px) {
+    html {
+        font-size: 14px;
+    }
+    .card {
+        width: 60px;
+        height: 60px;
+    }
+    .game-info {
+        gap: 100px;
+    }
+    .grid-1 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-2 {
+        grid-template-columns: repeat(4, 1fr);  /* To arrange the cards in perfect position for mobile only */
+    }
+}
+@media (max-width: 350px) {
+    html {
+        font-size: 12px;
+    }
+    .card {
+        width: 45px;
+        height: 45px;
+    }
+    .game-info {
+        gap: 80px;
+    }
+    .grid-1 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-2 {
+        grid-template-columns: repeat(4, 1fr);  /* To arrange the cards in perfect position for mobile only */
+    }
+}
